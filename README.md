@@ -1,0 +1,2 @@
+# ali_mini_program_component_helper
+这是一个开发支付宝小程序组件的帮助程序
