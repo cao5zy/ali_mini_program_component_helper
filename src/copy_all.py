@@ -17,10 +17,9 @@ def copy_all(project_path, component_name):
     def copy(target_path):
         if not os.path.exists(target_path):
             copy_directory(project_path, target_path)
-            
-        def cb_init_template(init_template):
-            init_template(target_path)
 
-        return cb_init_template
+        return lambda init_template: init_template(target_path, component_name)
+            
+
 
     return copy(get_target_path(project_path, component_name))
