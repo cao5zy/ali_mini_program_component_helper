@@ -6,6 +6,9 @@ from assertpy import assert_that
 def copy_directory(source_path, target_path):
     return shutil.copytree(source_path, target_path)
 
+def get_target_path(project_path, component_name):
+    return os.path.join(os.path.split(project_path)[0], \
+                        os.path.split(project_path)[1] + '_' + component_name)
 
 def copy_all(project_path, component_name):
     assert_that(project_path).exists()
@@ -20,4 +23,4 @@ def copy_all(project_path, component_name):
 
         return cb_init_template
 
-    return copy(get_project_path(project_path, component_name))
+    return copy(get_target_path(project_path, component_name))

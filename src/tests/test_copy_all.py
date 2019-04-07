@@ -2,7 +2,7 @@ import os
 from assertpy import assert_that
 from codegenhelper import init_test_folder, remove_test_folder, test_root, debug, put_folder, put_file
 from nose import with_setup
-from copy_all import copy_directory
+from copy_all import copy_directory, get_target_path
 
 init_test_folder()
 
@@ -18,4 +18,6 @@ def test_copy_directory():
     assert_that(os.path.join(test_root(), 'folder1-x', 'test1.txt')).exists()
     assert_that(os.path.join(test_root(), 'folder1-x',  'test2.txt')).exists()
     assert_that(os.path.join(test_root(), 'folder1-x', 'folder2', 'test3.txt')).exists()
-    
+
+def test_get_target_path():
+    assert_that(get_target_path('/users/alan/project1', 'component-1')).is_equal_to('/users/alan/project1_component-1')
