@@ -11,7 +11,7 @@ def setup_copy_directory():
     put_file('test2.txt', put_folder('folder1', test_root()), '')
     put_file('test3.txt', put_folder('folder2', os.path.join(test_root(), 'folder1')), '')
     
-@with_setup(setup_copy_directory)
+@with_setup(setup_copy_directory, remove_test_folder)
 def test_copy_directory():
     copy_directory(os.path.join(test_root(), 'folder1'), os.path.join(test_root(), 'folder1-x'))
 
