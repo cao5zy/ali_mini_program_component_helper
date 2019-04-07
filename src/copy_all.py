@@ -1,8 +1,10 @@
 import os
+import shutil
 from assertpy import assert_that
 
+
 def copy_directory(source_path, target_path):
-    pass
+    return shutil.copytree(source_path, target_path)
 
 
 def copy_all(project_path, template_name):
@@ -19,4 +21,3 @@ def copy_all(project_path, template_name):
         return cb_init_template
 
     return copy(get_project_path(project_path, template_name))
-
